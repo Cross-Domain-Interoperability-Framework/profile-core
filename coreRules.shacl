@@ -71,6 +71,7 @@ cdifd:CDIFCatalogRecordShape a sh:NodeShape ;
     sh:message "The target of the metadata record (about)." ;
     sh:nodeKind sh:IRI ;
     sh:property cdifd:catalogRecordTypeProperty,
+        cdifd:metadataConformsToPresent,
         cdifd:metadataProfileProperty,
         cdifd:metadataSubjectProperty ;
     sh:target [ a sh:SPARQLTarget ;
@@ -257,7 +258,7 @@ cdifd:CDIFLabeledLinkShape a sh:NodeShape ;
 
 cdifd:CDIFOrganizationShape a sh:NodeShape ;
     sh:message "Organization must have an @id IRI, a name or an identifier that is a string" ;
-    sh:or ( [ sh:property cdifd:nameProperty ] [ sh:property [ sh:message "an organization should have an identifier that is a URI; use of ORCID is strongly encouraged" ;
+    sh:or ( [ sh:nodeKind sh:IRI ] [ sh:property cdifd:nameProperty ] [ sh:property [ sh:message "an organization should have an identifier that is a URI; use of ORCID is strongly encouraged" ;
                         sh:minCount 1 ;
                         sh:nodeKind sh:IRIOrLiteral ;
                         sh:path schema:identifier ] ] ) ;
@@ -312,6 +313,21 @@ cdifd:CDIFRoleShape a sh:NodeShape ;
             sh:path schema:contributor ],
         cdifd:roleNameProperty ;
     sh:targetClass schema:Role .
+
+cdifd:CDIFSubjectOfPlacementShape a sh:NodeShape ;
+    sh:property [ sh:message "schema:subjectOf must not be attached to a catalog record: the catalog record is what subjectOf points AT, not a resource that has one." ;
+            sh:not [ sh:in ( dcat:CatalogRecord ) ] ;
+            sh:path schema:additionalType ],
+        [ sh:message "schema:subjectOf may only be attached to the resource being documented: a node typed with one of the classes the CDIF core @type enum allows (schema:Dataset, schema:CreativeWork, schema:SoftwareApplication, schema:SoftwareSourceCode, schema:Product, schema:WebAPI, schema:DigitalDocument, schema:Collection, schema:ImageObject, schema:DataCatalog, schema:DefinedTermSet, schema:MediaObject). A structure fragment or other non-resource node must not carry one." ;
+            sh:path rdf:type ;
+            sh:qualifiedMinCount 1 ;
+            sh:qualifiedValueShape [ sh:in ( schema:CreativeWork schema:SoftwareApplication schema:SoftwareSourceCode schema:Product schema:WebAPI schema:Dataset schema:DigitalDocument schema:Collection schema:ImageObject schema:DataCatalog schema:DefinedTermSet schema:MediaObject ) ] ] ;
+    sh:target [ a sh:SPARQLTarget ;
+            sh:select """
+        PREFIX schema: <http://schema.org/>
+        SELECT ?this
+        WHERE { ?this schema:subjectOf ?record . }
+      """ ] .
 
 cdifd:derivedFromProperty a sh:NodeShape ;
     sh:filterShape [ sh:nodeKind sh:BlankNode ] ;
@@ -470,12 +486,19 @@ cdifd:keywordsProperty a sh:PropertyShape ;
     sh:path schema:keywords ;
     sh:severity sh:Warning .
 
+cdifd:metadataConformsToPresent a sh:PropertyShape ;
+    sh:message "a catalog record must declare at least one dcterms:conformsTo IRI identifying the conventions its serialization follows" ;
+    sh:minCount 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:path dcterms:conformsTo .
+
 cdifd:metadataProfileProperty a sh:PropertyShape ;
     sh:hasValue <https://w3id.org/cdif/core/1.1> ;
     sh:message "provide identifiers for specifications used in this record to provide guidance for machine agents processing the metadata record" ;
     sh:minCount 1 ;
     sh:nodeKind sh:IRI ;
-    sh:path dcterms:conformsTo .
+    sh:path dcterms:conformsTo ;
+    sh:severity sh:Warning .
 
 cdifd:metadataSubjectProperty a sh:PropertyShape ;
     sh:message "link to the target of the metadata node using the about property" ;
@@ -492,8 +515,8 @@ cdifd:resourceIdentifierProperty a sh:PropertyShape ;
                                     sh:path schema:url ] ] [ sh:property [ sh:datatype xsd:string ;
                                     sh:message "The identifer string; include applicable prefix (e.g. doi:, ark:, http:, isbn:)" ;
                                     sh:path schema:value ] ] ) ;
-                sh:property [ sh:datatype xsd:string ;
-                        sh:message "If specifying an identifier via the PropertyValue, the scheme (authority, domain) within which the identifier is assigned and unique must be identifed, either by name or preferably using a URI. See https://registry.identifiers.org/registry" ;
+                sh:property [ sh:message "If specifying an identifier via the PropertyValue, the scheme (authority, domain) within which the identifier is assigned and unique must be identifed, either by name or preferably using a URI. See https://registry.identifiers.org/registry" ;
+                        sh:or ( [ sh:datatype xsd:string ] [ sh:nodeKind sh:IRI ] ) ;
                         sh:path schema:propertyID ;
                         sh:severity sh:Warning ] ] ) ;
     sh:path schema:identifier .
