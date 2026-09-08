@@ -86,7 +86,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://doi.org/10.7910/DVN/ZSTW4Z#metadata",
     "schema:name": "GeoCodes metadata record for: Carbon footprint and environmental impacts of feeding grape pomace to dairy cows in California",

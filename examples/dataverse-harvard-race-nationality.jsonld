@@ -239,7 +239,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://doi.org/10.7910/DVN/LCVPPJ#metadata",
     "schema:name": "GeoCodes metadata record for: Replication Data for: Race, nationality, and partisanship shape U.S. public support for climate disaster aid: Evidence f",

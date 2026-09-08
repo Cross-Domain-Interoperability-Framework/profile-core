@@ -2039,7 +2039,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://doi.org/10.17026/DANS-X2M-UG9S#metadata",
     "schema:name": "GeoCodes metadata record for: External and Internal Spatial Attention",

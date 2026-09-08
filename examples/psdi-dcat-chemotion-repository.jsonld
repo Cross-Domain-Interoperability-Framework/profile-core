@@ -102,7 +102,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "http://metadata.psdi.ac.uk/psdi-dcat/data/06bdf98c-e51b-4656-a424-2c9e80b68c76#metadata",
     "schema:name": "Metadata record for: Chemotion Repository",

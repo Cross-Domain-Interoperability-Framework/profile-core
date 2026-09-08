@@ -105,7 +105,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://www.kaggle.com/ahmedshahriarsakib/usa-real-estate-dataset#metadata",
     "schema:name": "GeoCodes metadata record for: USA Real Estate Dataset",

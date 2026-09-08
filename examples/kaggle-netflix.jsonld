@@ -104,7 +104,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://www.kaggle.com/shivamb/netflix-shows#metadata",
     "schema:name": "GeoCodes metadata record for: Netflix Movies and TV Shows",

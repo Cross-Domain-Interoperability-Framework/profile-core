@@ -102,7 +102,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://www.kaggle.com/dgomonov/new-york-city-airbnb-open-data#metadata",
     "schema:name": "GeoCodes metadata record for: New York City Airbnb Open Data",

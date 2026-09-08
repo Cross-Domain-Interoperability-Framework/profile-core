@@ -98,7 +98,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://doi.org/10.7910/DVN/O4CV1E#metadata",
     "schema:name": "GeoCodes metadata record for: Processed Structural Variant–Gene–GWAS Overlap Dataset for Cancer Risk Loci",

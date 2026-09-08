@@ -38,7 +38,7 @@
   "schema:subjectOf": {
     "@id": "https://example.org/id/XYZ#metadata",
     "@type": ["schema:Dataset"],
-    "schema:additionalType": ["dcat:CatalogRecord"],
+    "schema:additionalType": [{"@id": "dcat:CatalogRecord"}],
     "schema:about": {
       "@id": "https://example.org/id/XYZ"
     },

@@ -103,7 +103,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data#metadata",
     "schema:name": "GeoCodes metadata record for: Climate Change: Earth Surface Temperature Data",

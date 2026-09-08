@@ -104,7 +104,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://www.kaggle.com/fedesoriano/heart-failure-prediction#metadata",
     "schema:name": "GeoCodes metadata record for: Heart Failure Prediction Dataset",

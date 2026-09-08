@@ -59,7 +59,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "http://metadata.psdi.ac.uk/psdi-dcat/data/07d83ee6-bad9-4c23-abea-ac70745b0803#metadata",
     "schema:name": "Metadata record for: Cambridge Structural Database (CSD)",

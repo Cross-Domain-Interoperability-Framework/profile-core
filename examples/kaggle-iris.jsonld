@@ -100,7 +100,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://www.kaggle.com/uciml/iris#metadata",
     "schema:name": "GeoCodes metadata record for: Iris Species",

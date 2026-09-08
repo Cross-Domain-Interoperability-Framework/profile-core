@@ -62,7 +62,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "http://metadata.psdi.ac.uk/psdi-dcat/data/e0e14403-1575-43db-a677-89aa515968e4#metadata",
     "schema:name": "Metadata record for: Chemical Availability Search (ChASe)",

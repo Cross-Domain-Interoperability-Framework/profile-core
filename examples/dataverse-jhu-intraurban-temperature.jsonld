@@ -209,7 +209,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://doi.org/10.7281/T10Z715B#metadata",
     "schema:name": "GeoCodes metadata record for: Data associated with the publication: Intraurban Temperature Variability in Baltimore",

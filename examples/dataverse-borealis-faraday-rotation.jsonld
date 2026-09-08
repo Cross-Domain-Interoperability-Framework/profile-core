@@ -374,7 +374,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://doi.org/10.5683/SP3/CWCXIP#metadata",
     "schema:name": "GeoCodes metadata record for: Total Faraday rotation by the Hall effect in a 2D electron gas",

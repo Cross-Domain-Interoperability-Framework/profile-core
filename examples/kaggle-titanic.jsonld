@@ -98,7 +98,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://www.kaggle.com/hesh97/titanicdataset-traincsv#metadata",
     "schema:name": "GeoCodes metadata record for: Titanic-Dataset (train.csv)",

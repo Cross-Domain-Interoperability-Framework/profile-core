@@ -64,7 +64,7 @@
   "schema:subjectOf": {
     "@id": "https://n2t.net/ark:/99152/63v4yo3eeqepj0#metadata",
     "@type": ["schema:Dataset"],
-    "schema:additionalType": ["dcat:CatalogRecord"],
+    "schema:additionalType": [{"@id": "dcat:CatalogRecord"}],
     "schema:about": {
       "@id": "https://n2t.net/ark:/99152/63v4yo3eeqepj0"
     },

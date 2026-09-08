@@ -29,7 +29,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "http://metadata.psdi.ac.uk/psdi-dcat/data/optimade-mcloud-mc3d-pbe-v1#metadata",
     "schema:name": "Metadata record for: Materials Cloud: MC3D (PBE-v1) - Materials Cloud 3D Structures Database",

@@ -79,7 +79,9 @@
       "schema:Dataset"
     ],
     "schema:additionalType": [
-      "dcat:CatalogRecord"
+      {
+        "@id": "dcat:CatalogRecord"
+      }
     ],
     "@id": "https://doi.org/10.7910/DVN/LRAH3C#metadata",
     "schema:name": "GeoCodes metadata record for: Lead isotope in northwest China",
