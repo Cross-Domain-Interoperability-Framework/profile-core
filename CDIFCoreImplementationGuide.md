@@ -725,6 +725,7 @@ CHOICE (at least one of identifier, name, or funder
 
 - **Cardinality:** Required if no name
 - **Content:** string.uri or [PropertyValue-(identifier)](#propertyvalue-identifier)
+- **Description:** identifier for organization
 
 ### **additionalType**
 
@@ -746,6 +747,7 @@ CHOICE (at least one of identifier, name, or funder
 
 - **Cardinality:** Optional, Repeatable
 - **Content:** string, [object reference](#object-reference)
+- **Description:** other identifiers for the organization
 
 ## Person
 
@@ -775,6 +777,7 @@ CHOICE (at least one of identifier, name, or funder
 
 - **Cardinality:** Required if no name
 - **Content:** string.uri or [PropertyValue-(identifier)](#propertyvalue-identifier)
+- **Description:** identifier for person, recommend ORCID
 
 ### **description**
 
@@ -804,6 +807,7 @@ CHOICE (at least one of identifier, name, or funder
 
 - **Cardinality:** Optional, Repeatable
 - **Content:** string, [object reference](#object-reference)
+- **Description:** other identifiers for the person
 
 ## PropertyValueSpecification
 
