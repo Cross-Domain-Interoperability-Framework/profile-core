@@ -692,6 +692,7 @@ CHOICE (at least one of identifier, name, or funder
 
 - **Cardinality:** Required if no identifier or name
 - **Content:** [object reference](#object-reference), [Person](#person), or [Organization](#organization)
+- **Description:** the person or organization that sponsors or grants the acknowledged funding.
 
 ### **description**
 
@@ -731,6 +732,7 @@ CHOICE (at least one of identifier, name, or funder
 
 - **Cardinality:** Optional, Repeatable
 - **Content:** string or [DefinedTerm](#defined-term)
+- **Description:** other type names or identifiers to classify an organization in more detail
 
 ### **alternateName**
 
@@ -742,6 +744,7 @@ CHOICE (at least one of identifier, name, or funder
 
 - **Cardinality:** Optional
 - **Content:** string
+- **Description:** Free text description providing additional information about an organization
 
 ### **sameAs**
 
@@ -916,6 +919,7 @@ CHOICE (at least one of identifier, name, or funder
 
 - **Cardinality:** Required
 - **Content:** [object reference](#object-reference), [Person](#person) or [Organization](#organization)
+- **Description:** a person or organization that has contributed in some way to the creation, publication or maintenance of the described resource; optionally with an assigned role.
 
 ## dcat:CatalogRecord
 
@@ -994,6 +998,7 @@ CHOICE (at least one of identifier, name, or funder
 
 - **Cardinality:** Required if no name or termCode
 - **Content:** string.uri or [PropertyValue-(identifier)](#propertyvalue-identifier)
+- **Description:** an identifier string or PropertyValue object specifying the identifier for a term
 
 ### **termCode**
 
