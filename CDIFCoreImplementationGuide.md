@@ -42,7 +42,7 @@ The JSON syntax is defined by the [ECMA JSON specification](https://www.ecma-in
 
 # Model
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 The information model for the base core profile is defined in the [cdifBook](https://cross-domain-interoperability-framework.github.io/cdifbook/preview-2026-05/metadata/core/#information-model). This section outlines a logical model focused on a JSON-LD implementation of the content items defined in the information model. All classes and properties are implemented with schema.org types and attributes unless there is a prefix indicating use of elements from other vocabularies. See the context section for prefixes used and their mapping to URIs.
 
@@ -54,7 +54,7 @@ JSON-LD every graph node has a \@type property that specifies the rdf:type for t
 
 ## Object reference
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 Linked data is implemented in rdf using URIs to reference objects that might be located in other parts of a graph, or remotely and accessed online. In the JSON-LD implementation, simply using a URI string as the value of a property does not create such a link—the value is simply a string, not the object reference by the URI. An "object ref" is always a string containing the id of the referenced object. Thus
 
@@ -68,7 +68,7 @@ Is the correct syntax to implemenat an object reference. Throughout this documen
 
 ## URI-shape values in `propertyID` and `additionalType`
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 Building on the object-reference convention above, CDIF profiles enforce a JSON-LD semantic-clarity rule for two schema.org properties whose values often name external concepts: `schema:propertyID` and `schema:additionalType`. If the value's lexical form matches a URI or CURIE (`scheme:localname`, e.g. `wd:Q3099911`, `dcat:CatalogRecord`, `https://orcid.org/0000-...`), it MUST be serialized as an IRI reference — `{"@id": "..."}` — not as a bare string literal. A URI-shape string serialized as a literal does not participate in RDF entailment as a resource reference, which defeats the interoperability the URI was intended to provide.
 
@@ -102,13 +102,13 @@ Incorrect (SHACL will flag):
 
 ## Repeating values
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 Any property with a 1..\* or 0..\* cardinality has values that are always implemented as arrays. This makes client processing easier because tests for single or array values are not necessary. If a property is ‘repeatable’, then assume the implementation is an array (JSON list).
 
 ## Namespace prefixes and JSON validation.
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 Namespace prefixes are explicitly used in the example documents so that the JSON schema can validate instance documents. JSON Schema validates the literal JSON structure -- property names, nesting, value types. Several features of JSON-LD can cause a semantically correct document to fail JSON Schema checks. The same property can appear as "schema:name", "name", or "http://schema.org/name" depending on the \@context. A JSON Schema that checks for "schema:name" will reject a document that uses "name", even though both mean the same thing. See [Validating CDIF Profile Metadata](https://github.com/Cross-Domain-Interoperability-Framework/validation/blob/main/docs/CDIF-profiles-metadata-validation.md) for a detailed discussion of validation processes for CDIF metadata, and the use of framing to validate JSON-LD instances using different [JSON-LD forms](https://www.w3.org/TR/json-ld11/#forms-of-json-ld) or custom context documents.
 
@@ -116,7 +116,7 @@ The JSON Schema validates **one metadata record at a time**: the document root m
 
 ## Use of dcat:CatalogRecord
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 In a harvesting/federated catalog system some metadata about the metadata is useful to keep track of where metadata came from, what format/profile it uses (harvesters need this to process), and update dates. Unambiguous expression of this information requires making statements about a metadata record distinct from the thing in the world that the metadata describes. In an RDF framework, this requires a distinct identifier for the metadata record object that will serve as the subject for these triples.
 
@@ -158,7 +158,7 @@ To address this issue, CDIF recommends that statements about the metadata record
 
 ## identifier and version identify different things
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 `schema:identifier` and `schema:version` are not two granularities of the same name. They answer different questions, and a record needs both because a consumer has both.
 
@@ -181,7 +181,7 @@ For comparison, DataONE makes the same distinction structural: every object has 
 
 ## Polymorphism of PropertyValue
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 The schema.org PropertyValue type is used in several different contexts in the implementation of CDIF metadata. This is a result of how the expected values for some important properties are defined in schema.org. In the Discovery profile, PropertyValue is an allowed value type for variableMeasured and for identifier. In some more advanced profiles, PropertyValue is also an allowed value for additionalProperty.
 
@@ -336,7 +336,7 @@ number</td>
 
 # Namespaces
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 -Namespace prefixes use in CDIF Core schema.org JSON-LD objects are specified by this JSON-LD context, which must be declared in every instance document. Note that the correct namespace URI for schema.org is ‘http’, not ‘https’. The https://schema.org/ uri identifies the schema.org context document, not the namespace. This example context includes all the namespaces used in any cdif profile:
 
@@ -354,13 +354,13 @@ number</td>
 
 # Base Class DataSet
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 -This profile applies to description of resources that can be described using the properties defined in the CDIF core information model. For implementation using the schema.org vocabulary, these are typed as schema:Dataset.
 
 # Required Properties from cdif Core profile
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 ### **\@id**
 
@@ -428,7 +428,7 @@ CHOICE at least one of two options:
 
 ## Action
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 ### **@type**
 
@@ -468,7 +468,7 @@ CHOICE at least one of two options:
 
 # Optional Dataset properties
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 ### **description**
 
@@ -568,11 +568,11 @@ CHOICE at least one of two options:
 
 # Other Classes used for CDIF Core
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 ## Data Download
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 - file-based access to a resource via URL; the DataDownload object provides a link to get the resource content, along with information about the serialization format and conventions used.
 
@@ -632,7 +632,7 @@ CHOICE at least one of two options:
 
 ## DataCatalog
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 - An accessible collection of data. The data might be metadata (about other resources) or datasets.
 
@@ -667,7 +667,7 @@ CHOICE at least one of two options:
 
 ## MonetaryGrant
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 ### **@type**
 
@@ -702,7 +702,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## Organization
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 ### **@id**
 
@@ -754,7 +754,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## Person
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 - Object representing a person.
 
@@ -814,7 +814,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## PropertyValueSpecification
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 - Description of the kind of value expected for a parameter value.
 
@@ -848,7 +848,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## Web API
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 - Provides information to request data through a web accessible service endpoint. This implementation uses the schema.org Action to document url or url template and parameters. At this point, schema is set up for one action-- an HTTP Get that requests data. The url template parameters (in curly brackets '{}') specify query parameters to filter the source data, request particular output formats or other options offered by the interface.
 
@@ -878,11 +878,11 @@ CHOICE (at least one of identifier, name, or funder
 
 # Data types used for CDIF Core
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 ## ContactPoint
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 - Information about how to communicate with a person or organization. CDIF only includes e-mail in its schema.
 
@@ -899,7 +899,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## Contributor
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 - For more granularity on how an agent contributed to a resource, use schema:Role. The schema.org documentation does not state that the Role type is an expected data type for the contributor property, but that is addressed in this blog post (http://blog.schema.org/2014/06/introducing-role.html). see also [ESIPfed Science on Schema.org roles of people note](https://github.com/ESIPFed/science-on-schema.org/blob/develop/guides/Dataset.md#roles-of-people).
 
@@ -923,7 +923,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## dcat:CatalogRecord
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 - This is the class used to provide information about the metadata record itself.
 
@@ -981,7 +981,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## Defined Term
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 ### **@type**
 
@@ -1014,7 +1014,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## EntryPoint
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 - Use to document the URL that is the target for invoking an action, or that is the target object of a link relationship.
 
@@ -1043,7 +1043,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## Labeled Link
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 ### **@type**
 
@@ -1070,7 +1070,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## LinkRole
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 - This is the type used for links that have an associated semantic conveyed by the linkRelationship.
 
@@ -1093,7 +1093,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## PropertyValue-(identifier)
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 ### **@type**
 
@@ -1120,7 +1120,7 @@ CHOICE (at least one of identifier, name, or funder
 
 ## spdx:Checksum
 
-[↑ Back to TOC](#table-of-contents)
+[^ Back to TOC](#table-of-contents)
 
 ### **spdx:algorithm**
 
