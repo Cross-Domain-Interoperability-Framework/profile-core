@@ -941,6 +941,7 @@ CHOICE (at least one of identifier, name, or funder
 ### **additionalType**
 
 - **Cardinality:** Required – "dcat:CatalogRecord", Repeatable
+- **Description:** The subjectOf/Dataset with information about the metadata record must have an additional type `dcat:CatalogRecord` declared, to distinguish it from other possible schema:subjectOf or schema:Dataset instances.
 - **Content:** string
 
 ### **about**
