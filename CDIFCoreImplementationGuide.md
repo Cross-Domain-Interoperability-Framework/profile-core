@@ -412,7 +412,7 @@ CHOICE at least one of two options:
 
 - **Cardinality:** Required if no distribution
 - **Content:** string.uri
-- **Description:** Web Location of a page describing the dataset (landing page), typically providing links or instructions to get the actual resource content; analogous to dcat:landingPage. If a direct link is available to get the data, put in distribution/DataDownload/contentUrl, that is equivalent to dcat:accessURL
+- **Description:** Web Location of a page describing the resource (landing page), might provide links or instructions to get resource content; analogous to dcat:landingPage.
 
 ### **distribution**
 
@@ -657,7 +657,7 @@ CHOICE at least one of two options:
 
 - **Cardinality:** Optional
 - **Content:** string.url
-- **Description:** Url to access catalog landing page.
+- **Description:** Web Location of a page describing the resource (landing page), might provide links or instructions to get resource content; analogous to dcat:landingPage.
 
 ### **identifier**
 
