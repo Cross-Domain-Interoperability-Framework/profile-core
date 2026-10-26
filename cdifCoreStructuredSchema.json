@@ -100,17 +100,8 @@
             "type": "string"
           },
           {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "IRI for an equivalent resource or alternate identifier"
-              }
-            }
+            "$ref": "#/$defs/ObjectReference",
+            "description": "IRI for an equivalent resource or alternate identifier"
           },
           {
             "$ref": "#/$defs/Identifier"
@@ -147,17 +138,8 @@
             "type": "string"
           },
           {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a reference to a resource defining conditions of Access"
-              }
-            }
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a reference to a resource defining conditions of Access"
           },
           {
             "$ref": "#/$defs/Reference"
@@ -175,17 +157,8 @@
             "type": "string"
           },
           {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a reference to a license defintion"
-              }
-            }
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a reference to a license defintion"
           },
           {
             "$ref": "#/$defs/Reference"
@@ -330,17 +303,8 @@
                 "type": "array",
                 "minItems": 1,
                 "items": {
-                  "type": "object",
-                  "required": [
-                    "@id"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "@id": {
-                      "type": "string",
-                      "description": "uri for specification that this distribution conforms to"
-                    }
-                  }
+                  "$ref": "#/$defs/ObjectReference",
+                  "description": "uri for specification that this distribution conforms to"
                 }
               },
               "schema:provider": {
@@ -349,17 +313,8 @@
                 "items": {
                   "anyOf": [
                     {
-                      "type": "object",
-                      "additionalProperties": false,
-                      "properties": {
-                        "@id": {
-                          "type": "string",
-                          "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-                        }
-                      },
-                      "required": [
-                        "@id"
-                      ]
+                      "$ref": "#/$defs/ObjectReference",
+                      "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
                     },
                     {
                       "$ref": "#/$defs/Person"
@@ -460,16 +415,7 @@
                             "type": "string"
                           },
                           {
-                            "type": "object",
-                            "required": [
-                              "@id"
-                            ],
-                            "additionalProperties": false,
-                            "properties": {
-                              "@id": {
-                                "type": "string"
-                              }
-                            }
+                            "$ref": "#/$defs/ObjectReference"
                           }
                         ]
                       },
@@ -662,16 +608,7 @@
                           "type": "array",
                           "description": "identifier(s) for a standard or specification the response conforms to.",
                           "items": {
-                            "type": "object",
-                            "required": [
-                              "@id"
-                            ],
-                            "additionalProperties": false,
-                            "properties": {
-                              "@id": {
-                                "type": "string"
-                              }
-                            }
+                            "$ref": "#/$defs/ObjectReference"
                           }
                         }
                       }
@@ -827,17 +764,8 @@
             "type": "string"
           },
           {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a reference to a publishing principles statement"
-              }
-            }
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a reference to a publishing principles statement"
           },
           {
             "$ref": "#/$defs/Reference"
@@ -861,17 +789,8 @@
           "items": {
             "anyOf": [
               {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference",
+                "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
               },
               {
                 "$ref": "#/$defs/Person"
@@ -890,17 +809,8 @@
       "items": {
         "anyOf": [
           {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-              }
-            },
-            "required": [
-              "@id"
-            ]
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
           },
           {
             "$ref": "#/$defs/Person"
@@ -931,17 +841,8 @@
               "schema:contributor": {
                 "anyOf": [
                   {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "properties": {
-                      "@id": {
-                        "type": "string",
-                        "description": "IRI reference to a Person or Organization defined elsewhere"
-                      }
-                    },
-                    "required": [
-                      "@id"
-                    ]
+                    "$ref": "#/$defs/ObjectReference",
+                    "description": "IRI reference to a Person or Organization defined elsewhere"
                   },
                   {
                     "$ref": "#/$defs/Person"
@@ -965,17 +866,8 @@
       "description": "Party who made the dataset publicly available",
       "anyOf": [
         {
-          "type": "object",
-          "additionalProperties": false,
-          "properties": {
-            "@id": {
-              "type": "string",
-              "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-            }
-          },
-          "required": [
-            "@id"
-          ]
+          "$ref": "#/$defs/ObjectReference",
+          "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
         },
         {
           "$ref": "#/$defs/Person"
@@ -991,17 +883,8 @@
       "items": {
         "anyOf": [
           {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-              }
-            },
-            "required": [
-              "@id"
-            ]
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
           },
           {
             "$ref": "#/$defs/Person"
@@ -1050,17 +933,8 @@
           "schema:funder": {
             "anyOf": [
               {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference",
+                "description": "a identifier for an agent defined in this metadata, or externally; must be dereferenceable"
               },
               {
                 "$ref": "#/$defs/Person"
@@ -1112,24 +986,15 @@
           },
           "prov:used": {
             "type": "array",
-            "description": "Entities the activity used. Per PROV-O each value denotes a prov:Entity. An item may be (1) a string URI or free-text reference, (2) an {@id} reference, (3) an inline entity object carrying an @type that includes prov:Entity plus a schema.org type for the kind of thing used, e.g. [\"prov:Entity\",\"schema:Thing\"] (instrument), [\"prov:Entity\",\"schema:CreativeWork\"] (method/protocol), or [\"prov:Entity\",\"schema:SoftwareApplication\"] (software), or (4) a role-keyed wrapper naming what was used through one of the recognized \"used\" relations (schema:instrument, bios:computationalTool, prov:reagent). Base leaves the wrapped value loose; profiles/extensions (e.g. cdifProvActivity, adaProduct) pin its shape (Instrument, ComputationalTool, Reagent, ...).",
+            "description": "Entities the activity used. Per PROV-O each value denotes a prov:Entity. An item may be (1) a string URI or free-text reference, (2) an {@id} reference, (3) an inline entity object carrying an @type that includes prov:Entity plus a schema.org type for the kind of thing used, e.g. [\"prov:Entity\",\"schema:Thing\"] (instrument), [\"prov:Entity\",\"schema:CreativeWork\"] (method/protocol), or [\"prov:Entity\",\"schema:SoftwareApplication\"] (software), or (4) a role-keyed wrapper naming what was used through one of the recognized \"used\" relations (schema:instrument, bios:computationalTool, bios:reagent), or (5) a role-keyed wrapper under a role a consuming profile defines for itself, admitted by shape rather than by name. Base leaves the wrapped value loose; profiles/extensions (e.g. cdifProvActivity, adaProduct) pin its shape (Instrument, ComputationalTool, Reagent, ...) and close the set of role names they accept.",
             "items": {
               "anyOf": [
                 {
                   "type": "string"
                 },
                 {
-                  "type": "object",
-                  "required": [
-                    "@id"
-                  ],
-                  "additionalProperties": false,
-                  "properties": {
-                    "@id": {
-                      "type": "string",
-                      "description": "a resolvable reference to a representation of the software or instrument used"
-                    }
-                  }
+                  "$ref": "#/$defs/ObjectReference",
+                  "description": "a resolvable reference to a representation of the software or instrument used"
                 },
                 {
                   "type": "object",
@@ -1168,8 +1033,42 @@
                   "type": "object",
                   "description": "a role-keyed wrapper naming a reagent / material used; the extension layer pins the value to a Reagent description.",
                   "required": [
-                    "prov:reagent"
+                    "bios:reagent"
                   ]
+                },
+                {
+                  "type": "object",
+                  "description": "a role-keyed wrapper under a role name this layer does not recognize: an object carrying at least one prefixed-name (CURIE) property other than @id / @type, whose value is an {@id} reference, an inline description, or an array of either. CDIF deliberately does NOT enumerate profile-defined roles here: the three named above (schema:instrument, bios:computationalTool, bios:reagent) are in CDIF/bioschemas scope and stay explicit, while a domain profile is free to relate an activity to what it used through a role of its own without CDIF having to know the term. A consuming profile is expected to CLOSE the set to the roles it defines, so this branch is permissive BY DESIGN at the base layer and the restriction returns at the profile layer. allOf composes correctly in that direction -- base permissive, profile restrictive -- because an allOf intersection can only narrow: a role this layer admits by shape is still rejected by any profile that does not name it.",
+                  "minProperties": 1,
+                  "propertyNames": {
+                    "pattern": "^(@id|@type|[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*)$"
+                  },
+                  "not": {
+                    "description": "@id / @type alone is the plain {@id} reference branch, not a wrapper; at least one property here must be a role.",
+                    "propertyNames": {
+                      "enum": [
+                        "@id",
+                        "@type"
+                      ]
+                    }
+                  },
+                  "patternProperties": {
+                    "^[A-Za-z][A-Za-z0-9_.-]*:[A-Za-z_][A-Za-z0-9_.-]*$": {
+                      "anyOf": [
+                        {
+                          "type": "object",
+                          "description": "an {@id} reference to, or an inline description of, the entity used in this role"
+                        },
+                        {
+                          "type": "array",
+                          "minItems": 1,
+                          "items": {
+                            "type": "object"
+                          }
+                        }
+                      ]
+                    }
+                  }
                 }
               ]
             }
@@ -1187,17 +1086,8 @@
             "type": "string"
           },
           {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "a resolvable reference to a representation of the software or instrument used"
-              }
-            }
+            "$ref": "#/$defs/ObjectReference",
+            "description": "a resolvable reference to a representation of the software or instrument used"
           },
           {
             "$ref": "#/$defs/Reference"
@@ -1244,32 +1134,14 @@
           "description": "identifier for the metadata record"
         },
         "schema:about": {
-          "type": "object",
-          "required": [
-            "@id"
-          ],
-          "additionalProperties": false,
-          "properties": {
-            "@id": {
-              "type": "string",
-              "description": "this must be the @id value of the node containing the resource description metadata"
-            }
-          }
+          "$ref": "#/$defs/ObjectReference",
+          "description": "this must be the @id value of the node containing the resource description metadata"
         },
         "dcterms:conformsTo": {
           "type": "array",
           "items": {
-            "type": "object",
-            "required": [
-              "@id"
-            ],
-            "additionalProperties": false,
-            "properties": {
-              "@id": {
-                "type": "string",
-                "description": "uri for specifications that this metadata record conforms to"
-              }
-            }
+            "$ref": "#/$defs/ObjectReference",
+            "description": "uri for specifications that this metadata record conforms to"
           },
           "minItems": 1,
           "description": "uri for specifications that this metadata record conforms to. Minimimally should specify uri for CDIF discovery profile."
@@ -1447,17 +1319,8 @@
           "description": "A SKOS concept identified by URI, a schema:DefinedTerm, or an inline cdif:Concept. Shared shape used wherever a CDIF property carries either a controlled-vocabulary reference or an inline concept definition.",
           "anyOf": [
             {
-              "type": "object",
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "reference to a skos concept for the data type"
-                }
-              }
+              "$ref": "#/$defs/ObjectReference",
+              "description": "reference to a skos concept for the data type"
             },
             {
               "description": "schema.org Defined Term schema.\n\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:DefinedTerm is represented by a single attribute of that class type.\nThe JSON Schema implementation permits the property value to be EITHER a\nplain string (interpreted as schema:name or schema:termCode in the default\nvocabulary) OR a full schema:DefinedTerm object (with explicit @type, name,\nidentifier, termCode, inDefinedTermSet). Consumers should accept either form.\n\nNote that this differs from the cdif Concept policy: a Concept (skos:Concept)\nin CDIF profiles MUST be a controlled-vocabulary entry (object form or\n@id-reference) — plain strings are not permitted for Concept-typed values\nbecause vocabulary identity cannot be recovered from an unscoped label.\n",
@@ -1494,16 +1357,7 @@
                       "type": "string"
                     },
                     {
-                      "type": "object",
-                      "required": [
-                        "@id"
-                      ],
-                      "additionalProperties": false,
-                      "properties": {
-                        "@id": {
-                          "type": "string"
-                        }
-                      }
+                      "$ref": "#/$defs/ObjectReference"
                     }
                   ]
                 },
@@ -1546,6 +1400,21 @@
         }
       ]
     },
+    "ObjectReference": {
+      "title": "Object Reference",
+      "description": "A reference to a node defined elsewhere, by its @id.",
+      "type": "object",
+      "properties": {
+        "@id": {
+          "type": "string",
+          "description": "resolvable @id of the referenced node"
+        }
+      },
+      "required": [
+        "@id"
+      ],
+      "additionalProperties": false
+    },
     "Identifier": {
       "description": "Properties for a schema.org identifier (schema:PropertyValue pattern).\n**Union-type policy:** In CDIF profile UML models an attribute typed as\nschema:Identifier / schema:PropertyValue is represented by a single attribute\nof that class type. The JSON Schema implementation permits the property value\nto be EITHER a plain string (interpreted as the bare identifier value) OR a\nfull schema:PropertyValue object (with explicit @type, propertyID, value).\nConsumers should accept either form.\n",
       "type": "object",
@@ -1566,16 +1435,7 @@
               "type": "string"
             },
             {
-              "type": "object",
-              "additionalProperties": false,
-              "required": [
-                "@id"
-              ],
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/$defs/ObjectReference"
             }
           ],
           "description": "In this context for the schema:PropertyValue, this field is an identifier for the identifier schema, e.g. DOI, ARK.  Get values from https://registry.identifiers.org/registry/ for interoperability. URI-shape values MUST be serialized as JSON-LD IRI references ({\"@id\":\"...\"}) so they participate in RDF entailment; free-label strings remain valid as strings."
@@ -1684,19 +1544,7 @@
           "description": "The related resource -- the DCAT canonical pointer to what is being related to, which is distinct from schema:url, the presentation URL of the link itself.\nAn @id reference is the RECOMMENDED form and a string is permitted, which is DCMI's own position: \"Recommended practice is to identify the related resource by means of a URI. If this is not possible or feasible, a string conforming to a formal identification system may be provided.\" DCMI declares no rdfs:range for this property, and of the 13 DCMI properties carrying an \"intended to be used with non-literal values\" restriction, this is deliberately not one. dcat.ttl does not re-declare or constrain it at all -- the only triple mentioning it in the whole DCAT vocabulary is `dcat:distribution rdfs:subPropertyOf dcterms:relation`.\nSo objectReference-only would be stricter than both DCAT and DCMI and would reject a form the specification sanctions. The anyOf matches how schema:additionalType is handled here: both forms valid, the object form used in examples and required only where a `contains` pins a specific value.\nIt was string-only until 2026-10-01, which rejected the @id form outright. Reported from outside by a PSDI validator taking a things-not-strings approach (profile-core#16): their DCAT catalogue mirrors the DCAT-3 spec examples and wrote {\"@id\": ...}, which failed both layers -- while CDIF's own documented URI serialization policy (agents.md) says URI values SHOULD be {\"@id\": ...}. The register required the one form its own policy argues against.",
           "anyOf": [
             {
-              "title": "Object Reference",
-              "description": "A reference to a node defined elsewhere, by its @id.",
-              "type": "object",
-              "properties": {
-                "@id": {
-                  "type": "string",
-                  "description": "resolvable @id of the referenced node"
-                }
-              },
-              "required": [
-                "@id"
-              ],
-              "additionalProperties": false
+              "$ref": "#/$defs/ObjectReference"
             },
             {
               "type": "string",
@@ -1776,7 +1624,7 @@
         },
         "schema:contactPoint": {
           "type": "object",
-          "description": "restrict to email only. Schema.org allows telephone and postal contacts as well",
+          "description": "An email address or a contact web page (a form, an issue tracker), or both; at least one is required. Schema.org also allows telephone and postal contacts. A URL-only contact is ordinary in DCAT (a vcard:Kind with only vcard:hasURL), so requiring email made such records invalid.",
           "properties": {
             "@type": {
               "default": [
@@ -1793,11 +1641,26 @@
             },
             "schema:email": {
               "type": "string"
+            },
+            "schema:url": {
+              "type": "string",
+              "format": "uri"
             }
           },
           "required": [
-            "@type",
-            "schema:email"
+            "@type"
+          ],
+          "anyOf": [
+            {
+              "required": [
+                "schema:email"
+              ]
+            },
+            {
+              "required": [
+                "schema:url"
+              ]
+            }
           ]
         },
         "schema:sameAs": {
@@ -1809,16 +1672,7 @@
                 "type": "string"
               },
               {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/$defs/ObjectReference"
               }
             ]
           }
@@ -1919,16 +1773,7 @@
                 "type": "string"
               },
               {
-                "type": "object",
-                "required": [
-                  "@id"
-                ],
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                }
+                "$ref": "#/$defs/ObjectReference"
               }
             ]
           }
@@ -2182,30 +2027,12 @@
           "description": "Concept scheme(s) this concept belongs to.",
           "anyOf": [
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
+              "$ref": "#/$defs/ObjectReference"
             },
             {
               "type": "array",
               "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               }
             }
           ]
@@ -2214,30 +2041,12 @@
           "description": "Concept scheme(s) for which this is a top concept.",
           "anyOf": [
             {
-              "type": "object",
-              "additionalProperties": false,
-              "properties": {
-                "@id": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id"
-              ]
+              "$ref": "#/$defs/ObjectReference"
             },
             {
               "type": "array",
               "items": {
-                "type": "object",
-                "additionalProperties": false,
-                "properties": {
-                  "@id": {
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               }
             }
           ]
@@ -2248,18 +2057,7 @@
           "items": {
             "anyOf": [
               {
-                "type": "object",
-                "additionalProperties": false,
-                "description": "A reference to a SKOS Concept by URI.",
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "URI of the referenced concept."
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               },
               {
                 "$ref": "#/$defs/Concept"
@@ -2273,18 +2071,7 @@
           "items": {
             "anyOf": [
               {
-                "type": "object",
-                "additionalProperties": false,
-                "description": "A reference to a SKOS Concept by URI.",
-                "properties": {
-                  "@id": {
-                    "type": "string",
-                    "description": "URI of the referenced concept."
-                  }
-                },
-                "required": [
-                  "@id"
-                ]
+                "$ref": "#/$defs/ObjectReference"
               },
               {
                 "$ref": "#/$defs/Concept"
