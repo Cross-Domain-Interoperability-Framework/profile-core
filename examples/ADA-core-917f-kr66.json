@@ -68,10 +68,9 @@
       ],
       "schema:startDate": "2024-05-14T20:23:24.500865Z",
       "schema:identifier": "20231024_qris_jsc-ares_orex-800010-0_1",
-      "prov:used": [
+      "schema:instrument": [
         {
           "@type": [
-            "prov:Entity",
             "schema:Thing",
             "schema:Product"
           ],

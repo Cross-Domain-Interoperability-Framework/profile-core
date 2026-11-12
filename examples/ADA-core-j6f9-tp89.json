@@ -59,10 +59,9 @@
       ],
       "schema:startDate": "2024-02-20T12:00:00Z",
       "schema:identifier": "20240220_tem_jsc-ares_orex-501017-101_1",
-      "prov:used": [
+      "schema:instrument": [
         {
           "@type": [
-            "prov:Entity",
             "schema:Thing",
             "schema:Product"
           ],

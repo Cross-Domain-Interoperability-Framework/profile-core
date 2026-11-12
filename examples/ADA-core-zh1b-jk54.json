@@ -76,10 +76,9 @@
       ],
       "schema:startDate": "2025-01-24T12:00:00Z",
       "schema:identifier": "20250124_argt_cuwa_orex-803393-0_1",
-      "prov:used": [
+      "schema:instrument": [
         {
           "@type": [
-            "prov:Entity",
             "schema:Thing",
             "schema:Product"
           ],

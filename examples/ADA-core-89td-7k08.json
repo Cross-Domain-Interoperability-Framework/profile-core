@@ -59,10 +59,9 @@
       ],
       "schema:startDate": "2024-05-28T21:19:43.666944Z",
       "schema:identifier": "20240216_nanoir_csusm_orex-803030-0_1",
-      "prov:used": [
+      "schema:instrument": [
         {
           "@type": [
-            "prov:Entity",
             "schema:Thing",
             "schema:Product"
           ],

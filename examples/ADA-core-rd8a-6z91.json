@@ -76,10 +76,9 @@
       ],
       "schema:startDate": "2024-11-11T12:00:00Z",
       "schema:identifier": "20241111_dsc_nu_orex-803224-0_1",
-      "prov:used": [
+      "schema:instrument": [
         {
           "@type": [
-            "prov:Entity",
             "schema:Thing",
             "schema:Product"
           ],

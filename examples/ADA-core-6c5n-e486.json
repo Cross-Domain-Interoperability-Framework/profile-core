@@ -50,10 +50,9 @@
       ],
       "schema:startDate": "2023-10-05T11:46:22.457349Z",
       "schema:identifier": "20231005_ea-irms_cis_multisample_1",
-      "prov:used": [
+      "schema:instrument": [
         {
           "@type": [
-            "prov:Entity",
             "schema:Thing",
             "schema:Product"
           ],

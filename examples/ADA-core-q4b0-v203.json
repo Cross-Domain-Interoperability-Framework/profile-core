@@ -86,10 +86,9 @@
       ],
       "schema:startDate": "2024-06-11T15:57:29.233199Z",
       "schema:identifier": "20240206_hr-icp-ms_llnl_orex-803015-101_1",
-      "prov:used": [
+      "schema:instrument": [
         {
           "@type": [
-            "prov:Entity",
             "schema:Thing",
             "schema:Product"
           ],

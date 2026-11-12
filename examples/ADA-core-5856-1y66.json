@@ -50,10 +50,9 @@
       ],
       "schema:startDate": "2024-05-22T12:00:00Z",
       "schema:identifier": "20240522_tem_uaz_orex-501044-104_1",
-      "prov:used": [
+      "schema:instrument": [
         {
           "@type": [
-            "prov:Entity",
             "schema:Thing",
             "schema:Product"
           ],

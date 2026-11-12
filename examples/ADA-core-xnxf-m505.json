@@ -59,10 +59,9 @@
       ],
       "schema:startDate": "2025-02-13T13:32:35.223487Z",
       "schema:identifier": "20250213_sem_nmnh_orex-803089-100_1",
-      "prov:used": [
+      "schema:instrument": [
         {
           "@type": [
-            "prov:Entity",
             "schema:Thing",
             "schema:Product"
           ],
