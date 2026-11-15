@@ -577,7 +577,7 @@ cdifd:metadataConformsToPresent a sh:PropertyShape ;
     sh:path dcterms:conformsTo .
 
 cdifd:metadataProfileProperty a sh:PropertyShape ;
-    sh:hasValue <https://w3id.org/cdif/core/1.1> ;
+    sh:hasValue <https://w3id.org/cdif/core/2.0> ;
     sh:message "provide identifiers for specifications used in this record to provide guidance for machine agents processing the metadata record" ;
     sh:minCount 1 ;
     sh:nodeKind sh:IRI ;

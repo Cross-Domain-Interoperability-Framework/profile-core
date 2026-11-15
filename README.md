@@ -20,7 +20,7 @@ Every valid CDIF Core instance must include:
 - `schema:dateModified` — Last update date (ISO 8601)
 - `schema:license` OR `schema:conditionsOfAccess` — Rights/access information
 - `schema:url` OR `schema:distribution` — Access to the resource
-- `schema:subjectOf` — CatalogRecord with `dcterms:conformsTo` including `https://w3id.org/cdif/core/1.1`
+- `schema:subjectOf` — CatalogRecord with `dcterms:conformsTo` including `https://w3id.org/cdif/core/2.0`
 
 ## Examples
 

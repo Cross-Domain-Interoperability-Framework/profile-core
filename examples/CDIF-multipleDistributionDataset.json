@@ -75,7 +75,7 @@
       "schema:name": "Metadata creator-editor-steward"
     },
     "dcterms:conformsTo": [
-      {"@id": "https://w3id.org/cdif/core/1.1"}
+      {"@id": "https://w3id.org/cdif/core/2.0"}
     ],
     "schema:description": "Synthetic example created for the CDIF specification documentation, illustrating CDIF core metadata with multiple distribution formats for the same dataset."
   }

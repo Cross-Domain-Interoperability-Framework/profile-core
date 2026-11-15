@@ -149,7 +149,7 @@ To address this issue, CDIF recommends that statements about the metadata record
     "sdDatePublished": "2017-05-23",
     "about": { "@id": "ex:URIforNode1" },
     "description": "metadata about documentation for ex:URIforDescribedResource",
-    "dcterms:conformsTo": { "@id": "https://w3id.org/cdif/core/1.1" }
+    "dcterms:conformsTo": { "@id": "https://w3id.org/cdif/core/2.0" }
   }
 }
 ```
@@ -954,7 +954,7 @@ CHOICE (at least one of identifier, name, or funder
 
 - **Cardinality:** Required, Repeatable
 - **Content:** [object reference](#object-reference)
-- **Description:** Identifiers for conformance classes/profiles that the metadata record follows. For CDIF Core this must include 'https://w3id.org/cdif/core/1.1'; a record that also conforms to a higher-level profile (e.g. Discovery) lists that profile's identifier as well.
+- **Description:** Identifiers for conformance classes/profiles that the metadata record follows. For CDIF Core this must include 'https://w3id.org/cdif/core/2.0'; a record that also conforms to a higher-level profile (e.g. Discovery) lists that profile's identifier as well.
 
 ### **description**
 

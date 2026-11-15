@@ -37,7 +37,7 @@
       "schema:email": "metadata@joesphotostudio.org"
     },
     "dcterms:conformsTo": [
-      {"@id": "https://w3id.org/cdif/core/1.1"}
+      {"@id": "https://w3id.org/cdif/core/2.0"}
     ],
     "schema:description": "Synthetic example created for the CDIF specification documentation, illustrating simple CDIF core metadata for an ImageObject with creator and license."
   }

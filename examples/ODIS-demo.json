@@ -43,7 +43,7 @@
       "@id": "https://example.org/id/XYZ"
     },
     "dcterms:conformsTo": [
-      {"@id": "https://w3id.org/cdif/core/1.1"}
+      {"@id": "https://w3id.org/cdif/core/2.0"}
     ],
     "schema:description": "Adapted from an ODIS (Ocean Data and Information System) schema.org JSON-LD demonstration record. Converted to CDIF core profile: property names prefixed with schema: namespace, @context set to CDIF prefix declarations, @type values normalized to arrays."
   }

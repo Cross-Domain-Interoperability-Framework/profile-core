@@ -31,7 +31,7 @@ When adding examples, ensure:
 1. `@context` has explicit prefix declarations (`schema`, `dcterms`, `dcat`, `prov`) — never `@vocab`
 2. `schema:` prefix on all schema.org property names
 3. `@type` as arrays (e.g., `["schema:Dataset"]`)
-4. `schema:subjectOf` with `dcat:CatalogRecord`, `dcterms:conformsTo` including `https://w3id.org/cdif/core/1.1`
+4. `schema:subjectOf` with `dcat:CatalogRecord`, `dcterms:conformsTo` including `https://w3id.org/cdif/core/2.0`
 5. `schema:creator` uses `@list` wrapper for author ordering
 6. Namespace `http://schema.org/` (never `https://`)
 7. **Never strip extra properties** — open-world assumption means unknown properties are valid
