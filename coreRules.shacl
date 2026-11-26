@@ -113,7 +113,14 @@ cdifd:CDIFDataDownloadShape a sh:NodeShape ;
             sh:minCount 1 ;
             sh:path schema:contentUrl ;
             sh:pattern "^[a-zA-Z][a-zA-Z0-9+.-]*:[^\\s]*$" ] ;
-    sh:targetClass schema:DataDownload .
+    sh:target [ a sh:SPARQLTarget ;
+            sh:select """
+            PREFIX schema: <http://schema.org/>
+            SELECT ?this WHERE {
+                ?this a schema:DataDownload .
+                FILTER NOT EXISTS { ?action schema:result ?this }
+            }
+        """ ] .
 
 cdifd:CDIFDatasetMandatoryShape a sh:NodeShape ;
     sh:message "A Dataset must have an @id that is a URI (IRI)" ;
@@ -319,19 +326,19 @@ cdifd:CDIFLinkRoleShape a sh:NodeShape ;
     sh:targetClass schema:LinkRole .
 
 cdifd:CDIFOrganizationShape a sh:NodeShape ;
-    sh:message "Organization must have an @id IRI, a name or an identifier that is a string" ;
-    sh:or ( [ sh:nodeKind sh:IRI ] [ sh:property cdifd:nameProperty ] [ sh:property [ sh:message "an organization should have an identifier that is a URI; use of ORCID is strongly encouraged" ;
+    sh:message "Organization must have an @id IRI, a non-empty schema:name, or an identifier that is a string. A name that is present but empty does not satisfy this." ;
+    sh:or ( [ sh:nodeKind sh:IRI ] [ sh:property cdifd:organizationNameProperty ] [ sh:property [ sh:message "an organization should have an identifier that is a URI; use of ORCID is strongly encouraged" ;
                         sh:minCount 1 ;
                         sh:nodeKind sh:IRIOrLiteral ;
                         sh:path schema:identifier ] ] ) ;
     sh:targetClass schema:Organization .
 
 cdifd:CDIFPersonShape a sh:NodeShape ;
-    sh:message "A person must have a name or an identifier provided; affiliation to an organization is recommended." ;
+    sh:message "A person must have a non-empty schema:name or an identifier; a name that is present but empty does not satisfy this. Affiliation to an organization is recommended." ;
     sh:or ( [ sh:property [ sh:message "a person should have an identifier that is a URI; use of ORCID is strongly encouraged" ;
                         sh:minCount 1 ;
                         sh:nodeKind sh:IRIOrLiteral ;
-                        sh:path schema:identifier ] ] [ sh:property cdifd:nameProperty ] ) ;
+                        sh:path schema:identifier ] ] [ sh:property cdifd:personNameProperty ] ) ;
     sh:property cdifd:affiliationProperty,
         cdifd:contactPointProperty ;
     sh:targetClass schema:Person .
@@ -395,6 +402,21 @@ cdifd:CDIFWebServiceActionShape a sh:NodeShape ;
             sh:path schema:target ] ;
     sh:targetObjectsOf schema:potentialAction .
 
+cdifd:agentInRoleDefinedTermShape a sh:NodeShape ;
+    sh:message "A DefinedTerm must have either a non-empty schema:name or a schema:identifier -- ideally both. A schema:name that is present but empty does not satisfy this." ;
+    sh:or ( [ sh:property [ sh:message "a defined term should have an identifier that is a resolvable URI" ;
+                        sh:minCount 1 ;
+                        sh:or ( [ sh:datatype xsd:string ] [ sh:and ( [ sh:class schema:PropertyValue ] [ sh:or ( [ sh:property [ sh:datatype xsd:string ;
+                                                                    sh:message "a value for the identifier should be provided; can provide either full URI or identifier token part of URI if a url is provided." ;
+                                                                    sh:minCount 1 ;
+                                                                    sh:path schema:value ] ] [ sh:property [ sh:datatype xsd:string ;
+                                                                    sh:message "value must be a resolvable URL, but we aren't testing to see if the URL resolves..... Can't get xsd:anyURI to work with JSON Schema validation..." ;
+                                                                    sh:minCount 1 ;
+                                                                    sh:path schema:url ;
+                                                                    sh:pattern "^https?:\\/\\/[^\\s]+$" ] ] ) ] ) ] ) ;
+                        sh:path schema:identifier ] ] [ sh:property cdifd:termLabelProperty ] ) ;
+    sh:targetClass schema:DefinedTerm .
+
 cdifd:derivedFromProperty a sh:NodeShape ;
     sh:filterShape [ sh:nodeKind sh:BlankNode ] ;
     sh:message "PROV:derivedFrom must have a string value, a CreativeWork citing a source or an @id reference to a source." ;
@@ -426,9 +448,9 @@ cdifd:fundingShape a sh:NodeShape ;
     sh:targetClass schema:MonetaryGrant .
 
 cdifd:generatedByNode a sh:NodeShape ;
-    sh:property [ sh:message "A prov:used value should be an IRI (an @id reference) or a string of at least 3 characters" ;
+    sh:property [ sh:message "A prov:used value should be an IRI (an @id reference) or a non-empty string" ;
             sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ;
-                        sh:minLength 3 ] ) ;
+                        sh:minLength 1 ] ) ;
             sh:path prov:used ;
             sh:severity sh:Warning ] ;
     sh:target [ a sh:SPARQLTarget ;
@@ -469,7 +491,7 @@ cdifd:webAPINode a sh:NodeShape ;
     sh:property [ sh:message "A WebAPI node must specify a service type with a string, IRI, or DefinedTerm" ;
             sh:minCount 1 ;
             sh:or ( [ sh:nodeKind sh:IRI ] [ sh:class schema:DefinedTerm ] [ sh:datatype xsd:string ;
-                        sh:minLength 3 ] ) ;
+                        sh:minLength 1 ] ) ;
             sh:path schema:serviceType ],
         [ sh:message "A WebAPI must specify terms of service (schema:termsOfService) as a string, IRI, or CreativeWork." ;
             sh:minCount 1 ;
@@ -563,9 +585,9 @@ cdifd:descriptionProperty a sh:PropertyShape ;
 
 cdifd:grantNameProperty a sh:PropertyShape ;
     sh:datatype xsd:string ;
-    sh:message "a title for the grant must be provided, and have a length of at least 3 characters." ;
+    sh:message "a title for the grant must be provided, and must not be empty." ;
     sh:minCount 1 ;
-    sh:minLength 3 ;
+    sh:minLength 1 ;
     sh:path schema:name .
 
 cdifd:keywordsProperty a sh:PropertyShape ;
@@ -582,7 +604,7 @@ cdifd:metadataConformsToPresent a sh:PropertyShape ;
 
 cdifd:metadataProfileProperty a sh:PropertyShape ;
     sh:hasValue <https://w3id.org/cdif/core/2.0> ;
-    sh:message "provide identifiers for specifications used in this record to provide guidance for machine agents processing the metadata record" ;
+    sh:message "a catalog record must declare conformance to https://w3id.org/cdif/core/2.0, and should list any further specifications it follows, to guide machine agents processing the metadata record" ;
     sh:minCount 1 ;
     sh:nodeKind sh:IRI ;
     sh:path dcterms:conformsTo ;
@@ -593,6 +615,27 @@ cdifd:metadataSubjectProperty a sh:PropertyShape ;
     sh:minCount 1 ;
     sh:nodeKind sh:IRI ;
     sh:path schema:about .
+
+cdifd:nameProperty a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:message "a name for the dataset must be provided, and must not be empty." ;
+    sh:minCount 1 ;
+    sh:minLength 1 ;
+    sh:path schema:name .
+
+cdifd:organizationNameProperty a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:message "a label (schema:name) for the Organization must be provided, and must not be empty" ;
+    sh:minCount 1 ;
+    sh:minLength 1 ;
+    sh:path schema:name .
+
+cdifd:personNameProperty a sh:PropertyShape ;
+    sh:datatype xsd:string ;
+    sh:message "a name for the person must be provided, and must not be empty." ;
+    sh:minCount 1 ;
+    sh:minLength 1 ;
+    sh:path schema:name .
 
 cdifd:resourceIdentifierProperty a sh:PropertyShape ;
     sh:message "An identifier for the documented resource must be provided" ;
@@ -626,22 +669,15 @@ cdifd:roleNameProperty a sh:PropertyShape ;
     sh:or ( [ sh:datatype xsd:string ] [ sh:class schema:DefinedTerm ] ) ;
     sh:path schema:roleName .
 
-cdifd:termLabelProperty a sh:PropertyShape ;
-    sh:datatype xsd:string ;
-    sh:message "a label (schema:name) for the term must be provided, and must have at least 3 characters" ;
-    sh:minCount 1 ;
-    sh:minLength 3 ;
-    sh:path schema:name .
-
 <https://cdif.org/validation/0.1/skos#conceptPrefLabelProperty> a sh:PropertyShape ;
     sh:message "Every skos:Concept must have at least one skos:prefLabel." ;
     sh:minCount 1 ;
     sh:path skos:prefLabel .
 
-cdifd:nameProperty a sh:PropertyShape ;
+cdifd:termLabelProperty a sh:PropertyShape ;
     sh:datatype xsd:string ;
-    sh:message "a name for the dataset must be provided, and have a length of at least 3 characters." ;
+    sh:message "a label (schema:name) for the term must be provided, and must not be empty" ;
     sh:minCount 1 ;
-    sh:minLength 3 ;
+    sh:minLength 1 ;
     sh:path schema:name .
 
