@@ -95,9 +95,10 @@ cdifd:CDIFContactPointShape a sh:NodeShape ;
                         sh:path schema:email ] ] [ sh:property [ sh:minCount 1 ;
                         sh:path schema:url ] ] ) ;
     sh:property [ sh:datatype xsd:string ;
+            sh:flags "i" ;
             sh:message "a contact point e-mail address should be well formed" ;
             sh:path schema:email ;
-            sh:pattern "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$" ;
+            sh:pattern "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$" ;
             sh:severity sh:Info ],
         [ sh:datatype xsd:string ;
             sh:message "a contact point web page should be an http(s) URL" ;
@@ -418,7 +419,6 @@ cdifd:agentInRoleDefinedTermShape a sh:NodeShape ;
     sh:targetClass schema:DefinedTerm .
 
 cdifd:derivedFromProperty a sh:NodeShape ;
-    sh:filterShape [ sh:nodeKind sh:BlankNode ] ;
     sh:message "PROV:derivedFrom must have a string value, a CreativeWork citing a source or an @id reference to a source." ;
     sh:or ( [ sh:nodeKind sh:IRI ] [ sh:datatype xsd:string ] [ sh:class schema:CreativeWork ;
                 sh:property [ sh:datatype xsd:string ;
